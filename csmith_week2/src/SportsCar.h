@@ -22,7 +22,7 @@ namespace wk2 {
 		void setZeroToSixtyTime(double zeroToSixtyTime);
 		double getTopSpeed();
 		double getZeroToSixtyTime();
-		virtual void print() override;
+		void print() override;
 		friend std::ostream& operator << (std::ostream& output, SportsCar sportsCar);
 
 

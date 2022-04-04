@@ -23,7 +23,7 @@ namespace wk2 {
 		void setMaxCargoWeight(double maxCargoWeight);
 		double getCargoSize();
 		double getMaxCargoWeight();
-		virtual void print() override;
+		void print() override;
 		friend std::ostream& operator << (std::ostream& output, Truck truck);
 
 	private:
