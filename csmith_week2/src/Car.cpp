@@ -2,6 +2,7 @@
 	Course: SDEV-340-45
 	Assignment Week: 2
 	Assignment Purpose: Demonstrate a Base Class and Inheritance
+	GitHub Download: https://github.com/quisitor/csmith_week2.git
 	\file Car.cpp Define the base class implementation
 	\author: Craig Smith
 	\version: 1.0 4/3/22

@@ -1,3 +1,37 @@
+/**
+	Course: SDEV-340-45
+	Assignment Week: 2
+	Assignment Purpose: Demonstrate a Base Class and Inheritance
+	GitHub Download: https://github.com/quisitor/csmith_week2.
+	
+	Create a car base class that follows the Assignment Formatting Guidelines and these requirements:
+	
+	The car base class shall have a method to display a car's make, model, and year built.
+	
+	Design a sports car class that inherits from the car class. The sports car class shall take in the same information as the base class 
+	but will also include the top speed of the sports car and its zero to 60 MPH time in seconds. The sports car class shall override the 
+	base function print method. The override print method shall display make, model, year built, top speed, and zero to 60 time.
+	
+	Design a truck class that inherits from the car class. The truck class shall include information about the cargo size in cubic feet 
+	and the maximum cargo weight. Create a print method that overrides the print method in the base class. This method shall only output 
+	the model of the truck, cargo size in cubic feet and maximum cargo weight.
+	
+	Create two sports car and two truck objects.
+	For one truck and one sports car object, set the values through an overloaded constructor.
+	For the second set of objects set the values through mutators (setters) and accessors (getters).
+	
+	Your program shall demonstrate the use of the print function for each object.
+	
+	Your program shall demonstrate at least one instance of pointer reference and dereference (done without a smart pointer) and one smart pointer.
+	
+	Implement and use at least one friend function. You may choose the functionality of the friend function.
+	
+	\file main.cpp Implments the test cases requested for the Week 2 Assignment
+	\author: Craig Smith
+	\version: 1.0 4/3/22
+
+*/
+
 #include "Car.h"
 #include "SportsCar.h"
 #include "Truck.h"
@@ -9,7 +43,10 @@ using namespace wk2;
 
 int main() {
 
-	// Test constructors, setters, getters
+	 
+/*
+	//-------- Test code for all classes --------
+	//-------- Assignment Specific Tests are Below This Section --------------
 
 	Car car1;
 	cout << "Make: " << car1.getMake() << "\nModel: " << car1.getModel() << "\nYear: " << car1.getYear() << endl;
@@ -109,20 +146,56 @@ int main() {
 		ptr->print();
 	}
 
+*/
 
-	//Test Smart Pointer reference and dereference
-	cout << endl << endl;
-	cout << "Smartpointer reference/deference example\n";
-	cout << "============================================================\n";
+
+
+	// Create a sports car and a truck object, initialize each with an overloaded constructor
+	SportsCar overLoadedSportsCar {"Tesla", "Roadster", 2019, 225, 1.8};
+	Truck overLoadedTruck{ "Dodge", "ECO Diesal 1500", 2022, 24, 20000 };
+
+	// Create a sports car and a truck object, initialize each with accessors and mutators.
+	SportsCar accessorMutatorSportsCar;
+	accessorMutatorSportsCar.setMake("Ford");
+	accessorMutatorSportsCar.setModel("Maverick");
+	accessorMutatorSportsCar.setYear(1988);
+	accessorMutatorSportsCar.setTopSpeed(110);
+	accessorMutatorSportsCar.setZeroToSixtyTime(7);
+
+	Truck accessorMutatorTruck;
+	accessorMutatorTruck.setMake("GMC");
+	accessorMutatorTruck.setModel("Sierra 1500");
+	accessorMutatorTruck.setYear(2022);
+	accessorMutatorTruck.setCargoSize(48);
+	accessorMutatorTruck.setMaxCargoWeight(17500);
+
+	// Demonstrate the Print function for each object
+	cout << endl << endl << "Print Function Demonstation\n";
+	overLoadedSportsCar.print();
+	overLoadedTruck.print();
+	accessorMutatorSportsCar.print();
+	accessorMutatorTruck.print();
+
+	// Demonstrate a non-smart pointer reference and dereference
+	Car* ptrCar = new Car();
+	cout << endl << endl << "Non - Smart Pointer reference / dereference example\n";
+	cout << *ptrCar << endl;
+	delete ptrCar;
+
+	// Demonstrate a smart pointer reference and dereference
+	cout << endl << endl << "Smartpointer reference/dereference example\n";
 	unique_ptr<SportsCar>ptr_sCar = make_unique<SportsCar>();
 	ptr_sCar->setMake("Pointer Car");
 	ptr_sCar->setModel("Smart Pointer Model");
 	ptr_sCar->setTopSpeed(532.23);
 	ptr_sCar->setYear(2078);
 	ptr_sCar->setZeroToSixtyTime(2.1);
-	cout << "Smartpointer dereference within its scope" << endl;
 	ptr_sCar->print();
 
+
+	// Demonstrate the implementation of at least one friend function - Overloaded the Insertion Operator << for each class
+	cout << endl << endl << "Friend Function example, overloaded Insertion Operator <<\n";
+	cout << overLoadedSportsCar << overLoadedTruck << accessorMutatorSportsCar << accessorMutatorTruck;
 
 	return 0;
 } 

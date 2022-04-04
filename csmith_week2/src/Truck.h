@@ -2,6 +2,7 @@
 	Course: SDEV-340-45
 	Assignment Week: 2
 	Assignment Purpose: Demonstrate a Base Class and Inheritance
+	GitHub Download: https://github.com/quisitor/csmith_week2.git
 	\file Truck.h Declare a derived Car class that specifies a specific car category - truck
 	\author: Craig Smith
 	\version: 1.0 4/3/22
